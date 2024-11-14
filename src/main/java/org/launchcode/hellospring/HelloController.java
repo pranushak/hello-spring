@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequestMapping(value = "hello")
 public class HelloController {
 
 //    @GetMapping("hello")
@@ -12,29 +13,40 @@ public class HelloController {
 //        return "hello," + coder +"!";
 //    }
 
-    @GetMapping("hello/{name}")
+//    @GetMapping("hello/{name}")
+//    @ResponseBody
+//    public String helloParams(@PathVariable String name){
+//        return "hello ," + name ;
+//    }
+
+//    @RequestMapping(value = "hello",method={RequestMethod.GET, RequestMethod.POST})
+//    @ResponseBody
+//    public String hello(@RequestParam String coder){
+//        return "hello" + coder + "!";
+//    }
+
+//    @GetMapping
+//    @ResponseBody
+//    public String helloForm(){
+//        String html = "<html>" +
+//                "<body>" +
+//                "<form method = 'get' action = '/hello'>" +
+//                "<input type = 'text' name = 'coder'/>" +
+//                "<input type = 'submit' name = 'Greet Me!'/>" +
+//                "</form>"+
+//                "</body>" +
+//                "</html>";
+//        return html;
+//    }
+    @GetMapping("")
     @ResponseBody
-    public String helloParams(@PathVariable String name){
-        return "hello ," + name ;
+    public String hello(){
+        return "hello Spring!";
     }
 
-    @RequestMapping(value="hello", method={RequestMethod.GET, RequestMethod.POST})
+    @GetMapping("goodbye")
     @ResponseBody
-    public String hello(@RequestParam String coder){
-        return "hello" + coder + "!";
-    }
-
-    @GetMapping
-    @ResponseBody
-    public String helloForm(){
-        String html = "<html>" +
-                "<body>" +
-                "<form method = 'get' action = '/hello'>" +
-                "<input type = 'text' name = 'coder'/>" +
-                "<input type = 'submit' name = 'Greet Me!'/>" +
-                "</form>"+
-                "</body>" +
-                "</html>";
-        return html;
+    public String goodbye(){
+        return "goobye Spring!";
     }
 }
